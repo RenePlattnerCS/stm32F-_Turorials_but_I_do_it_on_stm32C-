@@ -1,0 +1,21 @@
+20:19:27 **** Incremental Build of configuration Debug for project 1_LED_addr ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "1_LED_addr.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\1_LED_addr\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="1_LED_addr.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 1_LED_addr.elf
+ 
+arm-none-eabi-size  1_LED_addr.elf 
+arm-none-eabi-objdump -h -S 1_LED_addr.elf  > "1_LED_addr.list"
+   text	   data	    bss	    dec	    hex	filename
+    544	      0	   1568	   2112	    840	1_LED_addr.elf
+Finished building: default.size.stdout
+ 
+Finished building: 1_LED_addr.list
+ 
+20:19:43 **** Incremental Build of configuration Debug for project 1_LED_addr ****
+make -j16 all 
+arm-none-eabi-size  1_LED_addr.elf 
+   text	   data	    bss	    dec	    hex	filename
+    544	      0	   1568	   2112	    840	1_LED_addr.elf
+Finished building: default.size.stdout
+ 
