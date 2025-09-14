@@ -34,3 +34,36 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-09-02 19:42:39.015
 !MESSAGE Indexed '1_LED_addr' (4 sources, 53 headers) in 0.433 sec: 1,957 declarations; 2,880 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.041%)
+!SESSION 2025-09-14 19:50:03.919 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-14 19:50:30.001
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-14 19:50:30.002
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-14 19:50:42.704
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-14 20:49:21.738
+!MESSAGE Indexed '2_GPIO_Output' (3 sources, 53 headers) in 1.7 sec: 1,954 declarations; 2,862 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.042%)
+!SESSION 2025-09-14 21:04:28.435 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-14 21:04:35.893
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-14 21:04:35.895
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-14 21:04:46.917
+!MESSAGE Started RMI Server, listening on port 41337
