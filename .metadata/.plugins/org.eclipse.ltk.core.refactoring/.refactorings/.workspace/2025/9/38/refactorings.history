@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;2_GPIO_Output2&apos; to &apos;3_UART&apos;" description="Rename resource &apos;2_GPIO_Output2&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/2_GPIO_Output2" name="3_UART" stamp="1757880509243" updateReferences="true"/>
+</session>

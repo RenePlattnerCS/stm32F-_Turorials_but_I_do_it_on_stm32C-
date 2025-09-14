@@ -1,0 +1,65 @@
+#include <stdint.h>
+#include "stm32C0xx.h"
+
+
+
+#define GPIOAEN		(1U<<0)
+#define UART2EN		(1U<<17)
+
+#define CR1_TE		(1U << 3)
+#define CR1_UE		(1U << 0)
+
+#define SR_TXE		(1U << 7)
+
+#define SYS_FREQ	16000000
+#define APB1_CLK	SYS_FREQ
+
+#define UART_BAUDRATE	9600
+
+
+
+static void uart_set_baudrate(USART_TypeDef * USARTx, uint32_t PeriphClk, uint32_t DesiredBaudRate);
+static uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t BaudRate);
+
+
+int main(void)
+{
+    // 1. Enable clocks
+    RCC->IOPENR |= GPIOAEN;   // Enable GPIOA clock
+    RCC->APBENR1 |= UART2EN; // Enable USART2 clock
+
+    // 2. Configure PA2 as AF1 (USART2_TX)
+    GPIOA->MODER &= ~(3U << (2 * 2));   // Clear mode bits for PA2
+    GPIOA->MODER |=  (2U << (2 * 2));   // Alternate function mode
+    GPIOA->AFR[0] &= ~(0xFU << (2 * 4));
+    GPIOA->AFR[0] |=  (1U << (2 * 4));  // AF1 = USART2_TX
+
+    // 3. Configure USART2
+    USART2->CR1 = 0x0; // Disable before config
+    //uart_set_baudrate(USART2, APB1_CLK, UART_BAUDRATE);
+    USART2->BRR = 16000000 / 1666;
+    USART2->CR1 |= CR1_TE;   // Enable transmitter
+    USART2->CR1 |= CR1_UE;   // Enable USART
+
+
+
+    while (1)
+    {
+    	// 4. Send character 'A'
+    	    while (!(USART2->ISR & SR_TXE)); // Wait until TX ready
+    	    USART2->TDR = 'A';
+    }
+}
+
+static void uart_set_baudrate(USART_TypeDef * USARTx, uint32_t PeriphClk, uint32_t DesiredBaudRate)
+{
+	USARTx->BRR = compute_uart_bd(PeriphClk, DesiredBaudRate);
+}
+
+static uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t BaudRate)
+{
+	return ((PeriphClk + (BaudRate / 2U)) / BaudRate);
+}
+
+
+

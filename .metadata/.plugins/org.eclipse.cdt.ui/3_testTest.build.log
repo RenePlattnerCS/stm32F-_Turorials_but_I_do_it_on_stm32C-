@@ -1,0 +1,20 @@
+00:56:04 **** Incremental Build of configuration Debug for project 3_testTest ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+../Src/main.c:57:13: warning: 'uart_set_baudrate' defined but not used [-Wunused-function]
+   57 | static void uart_set_baudrate(USART_TypeDef * USARTx, uint32_t PeriphClk, uint32_t DesiredBaudRate)
+      |             ^~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "3_testTest.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\3_testTest\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3_testTest.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 3_testTest.elf
+ 
+arm-none-eabi-size  3_testTest.elf 
+arm-none-eabi-objdump -h -S 3_testTest.elf  > "3_testTest.list"
+   text	   data	    bss	    dec	    hex	filename
+    608	      0	   1568	   2176	    880	3_testTest.elf
+Finished building: default.size.stdout
+ 
+Finished building: 3_testTest.list
+ 
+
+00:56:04 Build Finished. 0 errors, 1 warnings. (took 459ms)
+
