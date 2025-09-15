@@ -97,3 +97,9 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-09-15 14:21:43.016
 !MESSAGE Indexed '4_UART2_PrintF' (5 sources, 60 headers) in 1.56 sec: 2,517 declarations; 3,719 references; 4 unresolved inclusions; 24 syntax errors; 406 unresolved names (6.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-15 14:28:49.170
+!MESSAGE Indexed '5_UART2_Modular' (5 sources, 62 headers) in 0.334 sec: 2,625 declarations; 4,429 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.028%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-15 14:42:54.935
+!MESSAGE Indexed '6_UART2_Receive' (5 sources, 66 headers) in 0.327 sec: 2,691 declarations; 4,398 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.028%)
