@@ -1,0 +1,10 @@
+14:27:05 **** Incremental Build of configuration Debug for project 4_UART2_PrintF ****
+make -j16 all 
+arm-none-eabi-size  4_UART2_PrintF.elf 
+   text	   data	    bss	    dec	    hex	filename
+   5164	     92	   1900	   7156	   1bf4	4_UART2_PrintF.elf
+Finished building: default.size.stdout
+ 
+
+14:27:05 Build Finished. 0 errors, 0 warnings. (took 143ms)
+

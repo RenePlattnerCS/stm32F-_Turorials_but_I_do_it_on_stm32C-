@@ -1,21 +1,33 @@
-14:14:28 **** Incremental Build of configuration Debug for project 3_UART ****
+14:26:56 **** Incremental Build of configuration Debug for project 4_UART2_PrintF ****
 make -j16 all 
 arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "3_UART.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\3_UART\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="3_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 3_UART.elf
+../Src/main.c: In function 'main':
+../Src/main.c:37:17: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   37 |                 printf("Hellooooo\n\r");
+      |                 ^~~~~~
+../Src/main.c:3:1: note: include '<stdio.h>' or provide a declaration of 'printf'
+    2 | #include "stm32C0xx.h"
+  +++ |+#include <stdio.h>
+    3 | 
+../Src/main.c:37:17: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+   37 |                 printf("Hellooooo\n\r");
+      |                 ^~~~~~
+../Src/main.c:37:17: note: include '<stdio.h>' or provide a declaration of 'printf'
+arm-none-eabi-gcc -o "4_UART2_PrintF.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\4_UART2_PrintF\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="4_UART2_PrintF.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 4_UART2_PrintF.elf
  
-arm-none-eabi-size  3_UART.elf 
-arm-none-eabi-objdump -h -S 3_UART.elf  > "3_UART.list"
+arm-none-eabi-size  4_UART2_PrintF.elf 
+arm-none-eabi-objdump -h -S 4_UART2_PrintF.elf  > "4_UART2_PrintF.list"
    text	   data	    bss	    dec	    hex	filename
-   1032	      0	   1568	   2600	    a28	3_UART.elf
+   5164	     92	   1900	   7156	   1bf4	4_UART2_PrintF.elf
 Finished building: default.size.stdout
  
-Finished building: 3_UART.list
+Finished building: 4_UART2_PrintF.list
  
-14:14:33 **** Incremental Build of configuration Debug for project 3_UART ****
+14:27:05 **** Incremental Build of configuration Debug for project 4_UART2_PrintF ****
 make -j16 all 
-arm-none-eabi-size  3_UART.elf 
+arm-none-eabi-size  4_UART2_PrintF.elf 
    text	   data	    bss	    dec	    hex	filename
-   1032	      0	   1568	   2600	    a28	3_UART.elf
+   5164	     92	   1900	   7156	   1bf4	4_UART2_PrintF.elf
 Finished building: default.size.stdout
  

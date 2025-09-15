@@ -23,6 +23,10 @@ void uart2_write(int ch);
 void uart2_tx_init(void);
 
 
+
+
+
+
 int main(void)
 {
 	uart2_tx_init();
