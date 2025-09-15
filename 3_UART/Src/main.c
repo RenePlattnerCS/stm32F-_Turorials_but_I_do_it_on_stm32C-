@@ -10,8 +10,9 @@
 #define CR1_UE		(1U << 0)
 
 #define SR_TXE		(1U << 7)
+#define CR_FIFOEN		(1U << 29)
 
-#define SYS_FREQ	16000000
+#define SYS_FREQ	12000000
 #define APB1_CLK	SYS_FREQ
 
 #define UART_BAUDRATE	115200
@@ -27,7 +28,7 @@ int main(void)
 	uart2_tx_init();
 	while(1)
 	{
-		uart2_write('A');
+		uart2_write('U');
 
 	}
 
@@ -45,21 +46,22 @@ void uart2_tx_init(void)
 	GPIOA->MODER |= (1U<<5);
 
 	//SetPA2 alt function type to UART_TX (AF07)
-	GPIOA->AFR[0] |= (1U <<8);
-	GPIOA->AFR[0] &= ~(1U <<9);
-	GPIOA->AFR[0] &= ~(1U <<10);
-	GPIOA->AFR[0] &= ~(1U <<11);
+	GPIOA->AFR[0] &= ~(0xFU << (2 * 4)); // clear AFRL bits for PA2
+	GPIOA->AFR[0] |=  (0x1U << (2 * 4)); // AF1 = USART2_TX
 
 	//configure UART module
 	//enable clock on UART2
 	RCC->APBENR1 |= UART2EN;
 	//consigure BAUD rate
 	uart_set_baudrate(USART2, APB1_CLK, UART_BAUDRATE);
+	//USART2->BRR =  (2 * 48000000)/921600;
 	//config transfer direction
 	USART2->CR1 = 0x0;
 	USART2->CR1 = CR1_TE;
+	USART2->CR1 &= ~CR_FIFOEN;
 	//enable uArt module
 	USART2->CR1 |= CR1_UE;
+
 
 }
 
@@ -80,5 +82,5 @@ static void uart_set_baudrate(USART_TypeDef * USARTx, uint32_t PeriphClk, uint32
 
 static uint16_t compute_uart_bd(uint32_t PeriphClk, uint32_t BaudRate)
 {
-	return ((PeriphClk + (BaudRate / 2U)) / BaudRate);
+	return ((PeriphClk + (BaudRate/2U))/BaudRate);
 }
