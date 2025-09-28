@@ -1,0 +1,30 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+
+#include "adc.h"
+
+
+
+int main(void)
+{
+
+
+
+	uart2_tx_init()
+	pa1_adc_init();
+
+
+	while(1)
+	{
+
+
+	}
+
+}
+
+
+
+
+

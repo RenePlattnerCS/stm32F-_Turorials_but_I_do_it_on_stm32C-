@@ -1,0 +1,14 @@
+/*
+ * adc.h
+ *
+ *  Created on: Sep 28, 2025
+ *      Author: NeerW
+ */
+
+#ifndef ADC_H_
+#define ADC_H_
+
+pa1_adc_init(void);
+void start_conversion(void);
+
+#endif /* ADC_H_ */

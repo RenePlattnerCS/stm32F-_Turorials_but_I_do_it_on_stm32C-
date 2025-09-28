@@ -1,0 +1,17 @@
+01:33:55 **** Incremental Build of configuration Debug for project 7_ADC ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/adc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/adc.d" -MT"Src/adc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/adc.o"
+arm-none-eabi-gcc -o "7_ADC.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\7_ADC\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="7_ADC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 7_ADC.elf
+ 
+arm-none-eabi-size  7_ADC.elf 
+arm-none-eabi-objdump -h -S 7_ADC.elf  > "7_ADC.list"
+   text	   data	    bss	    dec	    hex	filename
+   5428	     92	   1908	   7428	   1d04	7_ADC.elf
+Finished building: default.size.stdout
+ 
+Finished building: 7_ADC.list
+ 
+
+01:33:55 Build Finished. 0 errors, 0 warnings. (took 447ms)
+
