@@ -3,6 +3,9 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="SysTick"/>
+		<item value="Systic"/>
+		<item value="ADC"/>
 		<item value="UART"/>
 		<item value="GPIOA"/>
 		<item value="RCC"/>

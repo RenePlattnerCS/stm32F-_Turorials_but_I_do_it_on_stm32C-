@@ -1,0 +1,11 @@
+#include "stm32C0xx.h"
+#include <stdint.h>
+
+#define SYSTICK_LOAD_VAL		1600 // cycles happen in 1ms
+#define CTRL_ENABLE				(1U << 0)
+
+
+void systickDelayMs(int n)
+{
+
+}

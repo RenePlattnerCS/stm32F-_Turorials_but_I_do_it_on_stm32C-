@@ -145,3 +145,126 @@ C Model Exception: C Model Status [Element adc.c does not exist.]
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2025-09-29 00:51:50.589
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+!SESSION 2025-09-29 13:25:17.895 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-29 13:26:53.634
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-29 13:26:53.635
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-29 13:27:09.384
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-29 21:56:34.384
+!MESSAGE Indexed '8_SystickDelay' (7 sources, 67 headers) in 2.06 sec: 2,625 declarations; 3,992 references; 4 unresolved inclusions; 24 syntax errors; 398 unresolved names (5.7%)
+!SESSION 2025-09-29 22:19:38.682 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-29 22:19:47.039
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-29 22:19:47.041
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-29 22:19:58.607
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-09-29 22:21:41.240 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-29 22:21:48.036
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-29 22:21:48.037
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-29 22:21:58.995
+!MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2025-09-29 22:22:38.994 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-29 22:22:46.470
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-29 22:22:46.470
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-29 22:22:58.325
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-09-29 22:23:05.523
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.Workbench$39 RUNNING
+	 at java.base/java.io.WinNTFileSystem.getBooleanAttributes0(Native Method)
+	 at java.base/java.io.WinNTFileSystem.getBooleanAttributes(WinNTFileSystem.java:479)
+	 at java.base/java.io.FileSystem.hasBooleanAttributes(FileSystem.java:125)
+	 at java.base/java.io.File.exists(File.java:836)
+	 at org.eclipse.osgi.framework.util.SecureAction.exists(SecureAction.java:270)
+	 at org.eclipse.osgi.storage.bundlefile.DirBundleFile.getFile(DirBundleFile.java:64)
+	 at org.eclipse.osgi.storage.bundlefile.DirBundleFile.getEntry(DirBundleFile.java:144)
+	 at org.eclipse.osgi.internal.loader.classpath.ClasspathEntry.findEntry(ClasspathEntry.java:209)
+	 at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findClassImpl(ClasspathManager.java:672)
+	 at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClassImpl(ClasspathManager.java:657)
+	 at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClassImpl(ClasspathManager.java:637)
+	 at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:616)
+	 at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:348)
+	 at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:414)
+	 at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:520)
+	 at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:434)
+	 at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:174)
+	 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:580)
+	 at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	 at java.base/java.lang.Class.forName0(Native Method)
+	 at java.base/java.lang.Class.forName(Class.java:534)
+	 at java.base/java.lang.Class.forName(Class.java:513)
+	 at com.st.microxplorer.plugins.ipmanager.pluginmanagement.PluginManager.loadPluginJar(PluginManager.java:200)
+	 at com.st.microxplorer.plugins.ipmanager.pluginmanagement.PluginManager.discoverPlugins(PluginManager.java:93)
+	 at com.st.microxplorer.plugins.ipmanager.pluginmanagement.IpPluginManagement.<init>(IpPluginManagement.java:112)
+	 at com.st.microxplorer.plugins.ipmanager.pluginmanagement.IpPluginManagement.<init>(IpPluginManagement.java:118)
+	 at com.st.microxplorer.plugins.ipmanager.pluginmanagement.IpPluginManagement.<init>(IpPluginManagement.java:82)
+	 at com.st.microxplorer.plugins.ipmanager.IPPluginView.getUI(IPPluginView.java:131)
+	 at com.st.microxplorer.plugin.PluginManage.PluginDiscovery(PluginManage.java:84)
+	 at com.st.microxplorer.maingui.MainPanel.initialization(MainPanel.java:332)
+	 at com.st.microxplorer.maingui.AppletMainFrameCubeIde.init(AppletMainFrameCubeIde.java:242)
+	 at com.st.stm32cube.common.mx.core.CubeMxInstance.<init>(CubeMxInstance.java:117)
+	 at com.st.stm32cube.common.mx.core.CubeMxInstance.getInstance(CubeMxInstance.java:91)
+	 at com.st.stm32cube.common.mx.userauth.UserAuthAdapter.<init>(UserAuthAdapter.java:25)
+	 at com.st.stm32cube.common.mx.userauth.UserAuthProvider.getUserAuthAdapter(UserAuthProvider.java:16)
+	 at com.st.stm32cube.common.ecosystemintegration.ui.core.MCUEcoSystemIntegrationUiHelper.getUserAuth(MCUEcoSystemIntegrationUiHelper.java:100)
+	 at com.st.stm32cube.ide.mcu.userauth.UserAuthStartup.earlyStartup(UserAuthStartup.java:32)
+	 at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:79)
+	 at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:55)
+	 at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	 at org.eclipse.ui.internal.Workbench$39.run(Workbench.java:2733)
+	 at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2025-09-29 22:26:01.064 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-29 22:26:25.253
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-29 22:26:25.255
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-29 22:26:40.595
+!MESSAGE Started RMI Server, listening on port 41337
