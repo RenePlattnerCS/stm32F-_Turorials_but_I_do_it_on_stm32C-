@@ -7,3 +7,4 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:0_LED\ Debug/activeLaunchMode=r
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:0_LED\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:6_UART2_Receive/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:8_SystickDelay/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:9_GeneralTimers/activeLaunchMode=debug

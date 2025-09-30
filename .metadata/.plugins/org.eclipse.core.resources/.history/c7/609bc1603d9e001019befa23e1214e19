@@ -16,7 +16,7 @@
 #define AFR5_TIM1_CH1		(1U<<22) | (1U<<20)
 #define AFR6_TIM3_CH1		(1U<<24)
 
-#define CCER_CC1S_TIM3			(1U<<0)
+#define CCER_CC1S			(1U<<0)
 
 void tim1_1hz_init(void)
 {
@@ -104,13 +104,13 @@ void tim3_pa6_input_capture(void)
 	TIM1->PSC = 1600 - 1;
 
 	//set CH1 to capture on every  edge (input mode)
-	TIM3->CCMR1 = CCER_CC1S_TIM3;
+	TIM3->CCMR1 = CCER_CC1S;
 	//set CH1 to capture on rising edge
-	TIM3->CCER |= CCER_CC1S_TIM3;
+	TIM3->CCER |= (1U << 0)
 
 
 	//enable timer 3
-	TIM3->CR1 = CR1_CEN;
+	TIM1->CR1 = CR1_CEN;
 	// main output enable (needed for TIM1 advanced timer)
 	//TIM1->BDTR |= TIM_BDTR_MOE;
 
