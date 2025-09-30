@@ -1,0 +1,26 @@
+#include "stm32C0xx.h"
+
+
+#define TIM1EN			(1U << 11)
+#define CR1_CEN			(1U << 0)
+
+void tim1_1hz_init(void)
+{
+	//enable clock to timer 3
+	RCC->APBENR2 |= TIM1EN;
+	//set prescaler
+	TIM1->PSC = 1600 - 1;
+
+	// set auto reaload
+	TIM1->ARR = 10000 -1;
+
+	//clear counter
+	TIM1->CNT = 0;
+	//enable timer
+
+
+	TIM1->CR1 = CR1_CEN;
+
+}
+
+

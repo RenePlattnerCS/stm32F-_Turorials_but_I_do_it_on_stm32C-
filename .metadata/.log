@@ -286,3 +286,6 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-09-30 20:01:40.855
 !MESSAGE Indexed '9_GeneralTimers' (6 sources, 66 headers) in 1.9 sec: 2,608 declarations; 3,948 references; 4 unresolved inclusions; 24 syntax errors; 398 unresolved names (5.7%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-30 21:21:37.303
+!MESSAGE Indexed '10_OutputCompare' (7 sources, 64 headers) in 0.448 sec: 2,468 declarations; 3,854 references; 7 unresolved inclusions; 24 syntax errors; 398 unresolved names (5.9%)

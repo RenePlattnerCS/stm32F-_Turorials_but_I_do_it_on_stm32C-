@@ -1,10 +1,10 @@
-20:27:18 **** Incremental Build of configuration Debug for project 9_GeneralTimers ****
+22:13:12 **** Incremental Build of configuration Debug for project 9_GeneralTimers ****
 make -j16 all 
 arm-none-eabi-size  9_GeneralTimers.elf 
    text	   data	    bss	    dec	    hex	filename
-   5340	     92	   1900	   7332	   1ca4	9_GeneralTimers.elf
+    616	      0	   1568	   2184	    888	9_GeneralTimers.elf
 Finished building: default.size.stdout
  
 
-20:27:19 Build Finished. 0 errors, 0 warnings. (took 142ms)
+22:13:12 Build Finished. 0 errors, 0 warnings. (took 147ms)
 
