@@ -1,0 +1,22 @@
+#include "stm32C0xx.h"
+
+
+#define TIM3EN			(1U << 1)
+void tim2_1hz_init(void)
+{
+	//enable clock to timer 3
+	RCC->APBENR1 |= TIM3EN;
+	//set prescaler
+	TIM3->PSC = 1600 - 1;
+
+	// set auto reaload
+	TIM3->ARR = 10000 -1;
+
+	//clear counter
+
+	//enable timer
+
+
+}
+
+

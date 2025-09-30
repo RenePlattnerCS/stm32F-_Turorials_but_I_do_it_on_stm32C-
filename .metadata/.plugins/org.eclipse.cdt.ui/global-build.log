@@ -1,21 +1,21 @@
-22:51:24 **** Incremental Build of configuration Debug for project 8_SystickDelay ****
+20:27:12 **** Incremental Build of configuration Debug for project 9_GeneralTimers ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/systick.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/systick.d" -MT"Src/systick.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/systick.o"
-arm-none-eabi-gcc -o "8_SystickDelay.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\8_SystickDelay\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="8_SystickDelay.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 8_SystickDelay.elf
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "9_GeneralTimers.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\9_GeneralTimers\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="9_GeneralTimers.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 9_GeneralTimers.elf
  
-arm-none-eabi-size  8_SystickDelay.elf 
-arm-none-eabi-objdump -h -S 8_SystickDelay.elf  > "8_SystickDelay.list"
+arm-none-eabi-size  9_GeneralTimers.elf 
+arm-none-eabi-objdump -h -S 9_GeneralTimers.elf  > "9_GeneralTimers.list"
    text	   data	    bss	    dec	    hex	filename
-   5336	     92	   1900	   7328	   1ca0	8_SystickDelay.elf
+   5340	     92	   1900	   7332	   1ca4	9_GeneralTimers.elf
 Finished building: default.size.stdout
  
-Finished building: 8_SystickDelay.list
+Finished building: 9_GeneralTimers.list
  
-22:51:36 **** Incremental Build of configuration Debug for project 8_SystickDelay ****
+20:27:18 **** Incremental Build of configuration Debug for project 9_GeneralTimers ****
 make -j16 all 
-arm-none-eabi-size  8_SystickDelay.elf 
+arm-none-eabi-size  9_GeneralTimers.elf 
    text	   data	    bss	    dec	    hex	filename
-   5336	     92	   1900	   7328	   1ca0	8_SystickDelay.elf
+   5340	     92	   1900	   7332	   1ca4	9_GeneralTimers.elf
 Finished building: default.size.stdout
  
