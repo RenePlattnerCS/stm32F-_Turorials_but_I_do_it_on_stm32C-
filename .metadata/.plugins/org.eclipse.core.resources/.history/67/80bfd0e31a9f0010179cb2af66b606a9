@@ -1,0 +1,68 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+#include "timer.h"
+
+#include "systick.h"
+
+#include "exti.h"
+
+#define PIN5		(1U<<5)
+#define PIN13		(1U<<13)
+#define LED_PIN		PIN5
+#define BTN_PIN		PIN13
+
+
+static void exti_callback(void);
+
+int main(void)
+{
+
+	RCC->IOPENR |= (1U<<0);                  // enable GPIOA
+	GPIOA->MODER &= ~(3U << (5 * 2));        // PA5 as output
+	GPIOA->MODER |=  (1U << (5 * 2));
+
+	uart2_tx_init();
+	pc13_exti_init();
+
+
+	while(1)
+	{}
+
+}
+
+
+
+static void exti_callback(void)
+{
+	printf("BTN pressed...\n\r");
+
+
+	GPIOA->ODR ^= (1U << 5);                 // toggle LED
+
+
+}
+
+void EXTI4_15_IRQHandler(void)
+{
+
+    if ((EXTI->RPR1 & LINE13) )   // Check pending flag for line 13
+    {
+        EXTI->RPR1  = LINE13;   // Clear pending flag
+        exti_callback();
+        //NVIC_ClearPendingIRQ(EXTI4_15_IRQn);
+
+    }
+
+    if ((EXTI->FPR1 & LINE13) )   // Check pending flag for line 13
+        {
+
+            EXTI->FPR1  = LINE13;   // Clear pending flag
+            exti_callback();
+            //NVIC_ClearPendingIRQ(EXTI4_15_IRQn);
+
+        }
+}
+
+
