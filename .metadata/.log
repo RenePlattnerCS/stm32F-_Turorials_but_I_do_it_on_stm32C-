@@ -771,3 +771,18 @@ java.lang.Exception: Resource '/12_ADC_interrupt' does not exist.
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:668)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:605)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1481)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-02 13:42:28.061
+!MESSAGE Indexed '14_Systick_interrupt' (6 sources, 67 headers) in 0.48 sec: 2,712 declarations; 4,643 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.027%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-02 13:51:28.589
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 17 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-02 13:51:28.589
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-02 13:51:28.591
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 17 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-02 13:51:28.591
+!MESSAGE Existing sessions are:
