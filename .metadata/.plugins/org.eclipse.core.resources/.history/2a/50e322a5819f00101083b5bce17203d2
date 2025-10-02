@@ -1,0 +1,84 @@
+#include "stm32C0xx.h"
+#include "adc.h"
+
+#define ADC1EN				(1U << 20)
+#define APB_CLOCK_EN		(1U << 10)
+#define GPIOAEN				(1U << 0)
+#define ADEN				(1U << 0)
+
+#define ADC_CH0				(1U << 0)
+#define ADC_CH1				(1U << 1)
+
+#define ADC_START			(1U << 2)
+
+
+#define ADC_ADDIS			(1U << 1)
+#define ADC_ADCAL			(1U << 31)
+#define ADC_SINGLE_CON		(1U << 13)
+#define ADC_IER_EOCIE			(1U << 2)
+
+void pa1_adc_interrupt(void)
+{
+	//Enable clock to GPIO pin for ADC chanel 1
+	RCC->IOPENR |= GPIOAEN;
+	//enable clock to ADC
+	//RCC->APBENR1 |= APB_CLOCK_EN;
+	RCC->APBENR2 |= ADC1EN;
+
+	//set mode to analog
+	GPIOA->MODER |= (1U<<2);
+	GPIOA->MODER |= (1U<<3);
+
+	GPIOA->MODER |= (3U << (0 * 2));
+
+	//Ensure ADC is disabled before config
+	if (ADC1->CR & ADEN)
+	{
+		ADC1->CR |= ADC_ADDIS;
+		while(ADC1->CR & ADC_CR_ADEN);  // Wait until disabled
+	}
+
+	// Calibrate ADC
+	ADC1->CR |= ADC_CR_ADCAL;
+	while(ADC1->CR & ADC_CR_ADCAL);  // Wait for calibration to complete
+
+	//enable interrupt
+	ADC1->IER |= ADC_IER_EOCIE;
+
+	//enable ADC interrupt in NVIC
+	NVIC_EnableIRQ(ADC1_IRQn);
+
+	//config adc paameters
+	//Configure single conversion mode
+	ADC1->CFGR1 &= ~ADC_SINGLE_CON;  // single conversion (not continuous)
+
+	//conversion sequence start
+	//Select channel 0 (PA0)
+	ADC1->CHSELR |= ADC_CH1;
+
+	//conversion sequence length
+
+	//enable ADC module
+	ADC1->CR |= ADEN;
+
+
+
+}
+
+void start_conversion(void)
+{
+	//start conversion
+	ADC1->CR |= ADC_START;
+}
+
+uint32_t adc_read(void)
+{
+	//wait for conversion to complete
+	while(!(ADC1->ISR & ADC_SR_EOC)) {}
+
+	//read result
+	return ADC1->DR;
+
+
+}
+

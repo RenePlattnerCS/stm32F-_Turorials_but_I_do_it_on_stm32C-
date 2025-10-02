@@ -1,0 +1,4 @@
+M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include/core_cm0plus.h:741:22:__NVIC_EnableIRQ	2
+../Src/adc.c:20:6:pa1_adc_interrupt	5
+../Src/adc.c:77:6:start_conversion	1
+../Src/adc.c:83:10:adc_read	2

@@ -1,28 +1,29 @@
-12:42:24 **** Incremental Build of configuration Debug for project 12_UART2_interrupt ****
+13:32:56 **** Incremental Build of configuration Debug for project 13_ADC_interrupt ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "12_UART2_interrupt.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\12_UART2_interrupt\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="12_UART2_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 12_UART2_interrupt.elf
+arm-none-eabi-gcc "../Src/adc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/adc.d" -MT"Src/adc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/adc.o"
+../Src/adc.c:17: warning: "ADC_CFGR1_CONT" redefined
+   17 | #define ADC_CFGR1_CONT          (1U << 13)
+      | 
+In file included from M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32C0xx.h:105,
+                 from ../Src/adc.c:1:
+M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:788: note: this is the location of the previous definition
+  788 | #define ADC_CFGR1_CONT                 ADC_CFGR1_CONT_Msk                      /*!< ADC group regular continuous conversion mode */
+      | 
+arm-none-eabi-gcc -o "13_ADC_interrupt.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\13_ADC_interrupt\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="13_ADC_interrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 13_ADC_interrupt.elf
  
-arm-none-eabi-size  12_UART2_interrupt.elf 
-arm-none-eabi-objdump -h -S 12_UART2_interrupt.elf  > "12_UART2_interrupt.list"
+arm-none-eabi-size  13_ADC_interrupt.elf 
+arm-none-eabi-objdump -h -S 13_ADC_interrupt.elf  > "13_ADC_interrupt.list"
    text	   data	    bss	    dec	    hex	filename
-   1260	      0	   1568	   2828	    b0c	12_UART2_interrupt.elf
+   5588	     92	   1908	   7588	   1da4	13_ADC_interrupt.elf
 Finished building: default.size.stdout
  
-Finished building: 12_UART2_interrupt.list
+Finished building: 13_ADC_interrupt.list
  
-12:42:41 **** Incremental Build of configuration Debug for project 12_UART2_interrupt ****
+13:33:17 **** Incremental Build of configuration Debug for project 13_ADC_interrupt ****
 make -j16 all 
-arm-none-eabi-size  12_UART2_interrupt.elf 
+arm-none-eabi-size  13_ADC_interrupt.elf 
    text	   data	    bss	    dec	    hex	filename
-   1260	      0	   1568	   2828	    b0c	12_UART2_interrupt.elf
-Finished building: default.size.stdout
- 
-12:42:59 **** Incremental Build of configuration Debug for project 12_UART2_interrupt ****
-make -j16 all 
-arm-none-eabi-size  12_UART2_interrupt.elf 
-   text	   data	    bss	    dec	    hex	filename
-   1260	      0	   1568	   2828	    b0c	12_UART2_interrupt.elf
+   5588	     92	   1908	   7588	   1da4	13_ADC_interrupt.elf
 Finished building: default.size.stdout
  

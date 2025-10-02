@@ -1,0 +1,44 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+
+#include "adc.h"
+
+
+uint32_t sensor_value;
+
+int main(void)
+{
+
+
+
+	uart2_tx_init();
+	pa1_adc_interrupt();
+	start_conversion();
+
+
+	while(1)
+	{
+
+
+
+	}
+
+}
+
+
+void ADC1_IRQHandler(void)
+{
+	//check for EOC flag
+	if(ADC1->ISR & ADC_SR_EOC)
+	{
+		//clear flag
+		ADC1->ISR |= ADC_SR_EOC;
+
+		sensor_value = ADC1->DR;
+		printf("Sensor value:  %d  \n\r",(int) sensor_value);
+	}
+}
+
+

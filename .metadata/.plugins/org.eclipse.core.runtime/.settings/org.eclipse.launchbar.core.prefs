@@ -1,11 +1,12 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:7_ADC,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:8_SystickDelay,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:9_GeneralTimers,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:1_LED_addr Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3_testTest,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:0_LED Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:11_ButtonInterrupt,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_GPIO_Output Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3_UART,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:4_UART2_PrintF,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:5_UART2_Modular,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:6_UART2_Receive,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:12_UART2_interrupt
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:8_SystickDelay,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:9_GeneralTimers,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:1_LED_addr Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3_testTest,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:0_LED Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:11_ButtonInterrupt,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:12_UART2_interrupt,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:2_GPIO_Output Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:3_UART,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:4_UART2_PrintF,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:5_UART2_Modular,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:6_UART2_Receive,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:7_ADC,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:13_ADC_interrupt
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:0_LED\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:0_LED\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:12_UART2_interrupt/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:13_ADC_interrupt/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:6_UART2_Receive/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:8_SystickDelay/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:9_GeneralTimers/activeLaunchMode=run

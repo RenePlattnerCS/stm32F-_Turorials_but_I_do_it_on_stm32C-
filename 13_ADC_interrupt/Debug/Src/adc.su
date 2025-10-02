@@ -1,0 +1,4 @@
+M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include/core_cm0plus.h:741:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Src/adc.c:20:6:pa1_adc_interrupt	16	static
+../Src/adc.c:77:6:start_conversion	8	static
+../Src/adc.c:83:10:adc_read	8	static
