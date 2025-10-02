@@ -542,3 +542,21 @@ java.lang.Exception: Resource '/9_GeneralTimers' does not exist.
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2025-10-02 01:55:46.387
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+!SESSION 2025-10-02 12:12:26.523 -----------------------------------------------
+eclipse.buildId=Version 1.19.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-10-02 12:12:53.021
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-10-02 12:12:53.022
+!MESSAGE Log4j2 initialized with config file M:\embedded\stm32C\workbench\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-10-02 12:13:09.218
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-10-02 12:13:30.075
+!MESSAGE Indexed '12_UART2_interrupt' (6 sources, 63 headers) in 1.57 sec: 2,513 declarations; 3,801 references; 6 unresolved inclusions; 24 syntax errors; 396 unresolved names (5.9%)
