@@ -1,0 +1,43 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+#include "timer.h"
+
+#include "systick.h"
+
+#define GPIOAEN 			(1U << 0)
+
+#define PIN5				(1U << 5)
+#define LED_PIN				PIN5
+
+int timestamp = 0;
+
+int main(void)
+{
+
+	RCC->IOPENR |= GPIOAEN;
+	GPIOA->MODER |= (1U << 10);
+	GPIOA->MODER &= ~(1U << 11);
+
+	tim1_1hz_interrupt();
+
+	while(1)
+	{
+
+	}
+
+}
+
+void TIM1_BRK_UP_TRG_COM_IRQHandler(void)
+{
+	// clear UIF in status reg
+	TIM1->SR &= ~SR_UIF;
+	GPIOA->ODR ^=LED_PIN;
+
+}
+
+
+
+
+
