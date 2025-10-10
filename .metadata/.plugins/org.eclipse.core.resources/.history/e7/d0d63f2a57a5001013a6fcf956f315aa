@@ -1,0 +1,27 @@
+#include "stm32C0xx.h"
+#include <stdint.h>
+
+#define GPIOBEN			(1U << 1)
+#define APB_I2C1_EN		(1U << 21)
+
+//SCL =  PB8 AF6
+//SDA =  PB9 AF6
+void I2C1_init(void)
+{
+
+
+	//clock for GPIOB
+	RCC->IOPENR |= GPIOBEN;
+
+
+	// set PB8 and 9 to alternate func
+
+	// set Pint output type to open drain
+
+	// enable pullup for both pins
+
+
+	//enable clock to APB
+	RCC->APBENR1 |= APB_I2C1_EN;
+
+}

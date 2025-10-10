@@ -1,0 +1,17 @@
+/*
+ * i2c.h
+ *
+ *  Created on: Oct 9, 2025
+ *      Author: NeerW
+ */
+
+#ifndef I2C_H_
+#define I2C_H_
+
+void I2C1_init(void);
+void I2C1_ReadByte(char saddr, uint8_t reg_addr, char* data);
+void I2C1_burstRead(char saddr, uint8_t reg_addr, int n, char* data)
+void I2C_burstWrite(char saddr, uint8_t reg_addr, int n, char* data);
+
+
+#endif /* I2C_H_ */

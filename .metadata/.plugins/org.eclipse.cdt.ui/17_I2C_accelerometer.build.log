@@ -1,0 +1,17 @@
+13:47:05 **** Incremental Build of configuration Debug for project 17_I2C_accelerometer ****
+make -j16 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "17_I2C_accelerometer.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\17_I2C_accelerometer\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="17_I2C_accelerometer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 17_I2C_accelerometer.elf
+ 
+arm-none-eabi-size  17_I2C_accelerometer.elf 
+arm-none-eabi-objdump -h -S 17_I2C_accelerometer.elf  > "17_I2C_accelerometer.list"
+   text	   data	    bss	    dec	    hex	filename
+   2556	      0	   1592	   4148	   1034	17_I2C_accelerometer.elf
+Finished building: default.size.stdout
+ 
+Finished building: 17_I2C_accelerometer.list
+ 
+
+13:47:06 Build Finished. 0 errors, 0 warnings. (took 492ms)
+

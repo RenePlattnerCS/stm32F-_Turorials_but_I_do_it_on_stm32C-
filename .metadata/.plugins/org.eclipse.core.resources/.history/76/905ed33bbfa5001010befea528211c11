@@ -1,0 +1,35 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+#include "timer.h"
+
+#include "systick.h"
+
+#include "adxl345.h"
+
+
+uint16_t x,y,z;
+float xg, yg, zg;
+extern uint8_t data_vals[6];
+
+int main(void)
+{
+
+	adxl_init();
+
+
+	while(1)
+	{
+		adxl_read_values(DATA_START_ADDR);
+
+		x = ((data_vals[1] << 8)  |  data_vals[0]);
+	}
+
+}
+
+
+
+
+
+

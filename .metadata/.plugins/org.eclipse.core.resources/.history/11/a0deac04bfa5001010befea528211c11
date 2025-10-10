@@ -1,0 +1,30 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+#include "timer.h"
+
+#include "systick.h"
+
+#include "adxl345.h"
+
+extern uint8_t data_vals[6];
+
+int main(void)
+{
+
+	adxl_init();
+
+
+	while(1)
+	{
+
+	}
+
+}
+
+
+
+
+
+

@@ -1,0 +1,325 @@
+#include "stm32C0xx.h"
+#include <stdint.h>
+
+#define GPIOBEN			(1U << 1)
+#define APB_I2C1EN		(1U << 21)
+
+#define I2C_CR1_PE			(1U << 0)
+#define I2C_ISR_BUSY		(1U << 15)
+#define I2C_CR2_START		(1U << 13)
+// Assume 16 MHz clock
+#define I2C_TIMING_100KHZ  0x00303D5B  // Typical value for 100 kHz @16MHz HSI
+
+
+//#define I2C_TIMEOUT         10000
+#define I2C_ISR_TC			(1U << 6)
+#define I2C_CR2_RD_WRN		(1U << 10)
+#define I2C_CR2_NBYTES		(1U << 16)
+#define I2C_ISR_RXNE		(1U << 2)
+#define I2C_ISR_STOPF		(1U << 5)
+#define I2C_ISR_TXIS		(1U << 1)
+#define I2C_CR2_AUTOEND		(1U << 25)
+
+
+//SCL =  PB8 AF6
+//SDA =  PB9 AF6
+void I2C1_init(void)
+{
+
+
+	//clock for GPIOB
+	RCC->IOPENR |= GPIOBEN;
+
+
+	// set PB8 and 9 to alternate func
+	GPIOB->MODER &= ~(1U<<16);
+	GPIOB->MODER |= (1U<<17);
+
+	GPIOB->MODER  &= ~(1U<<18);
+	GPIOB->MODER  |= (1U<<19);
+
+	// set Pint output type to open drain
+	GPIOB->OTYPER |= (1U<<8);
+	GPIOB->OTYPER |= (1U<<9);
+
+	// Set output speed to Very High
+	//GPIOB->OSPEEDR |= ((3U << (8 * 2)) | (3U << (9 * 2)));
+
+	// enable pullup for both pins
+	GPIOB->PUPDR  &= ~(1U<<17);
+	GPIOB->PUPDR  |= (1U<<16);
+
+	GPIOB->PUPDR  &= ~(1U<<19);
+	GPIOB->PUPDR  |= (1U<<18);
+
+	// set AF6
+	GPIOB->AFR[1] &= ~((0xF << ((8 - 8) * 4)) | (0xF << ((9 - 8) * 4)));
+	GPIOB->AFR[1] |=  ((6U << ((8 - 8) * 4)) | (6U << ((9 - 8) * 4)));
+	//0110
+	//GPIOB->AFR[1] &= ~(1U << 0)
+	//GPIOB->AFR[1] |= (1U << 1)
+	//GPIOB->AFR[1] |=(1U << 2)
+	//GPIOB->AFR[1] &= ~(1U << 3)
+
+	//GPIOB->AFR[1] &= ~(1U << 4)
+	//GPIOB->AFR[1] |= (1U << 5)
+	//GPIOB->AFR[1] |=(1U << 6)
+	//GPIOB->AFR[1] &= ~(1U << 7)
+
+
+
+
+	//enable clock to APB
+	RCC->APBENR1 |= APB_I2C1EN;
+
+
+
+	// Disable I2C peripheral
+	I2C1->CR1 &= ~I2C_CR1_PE;
+
+	// Set timing (standard mode 100kHz, assuming 16 MHz clock)
+	I2C1->TIMINGR = I2C_TIMING_100KHZ;
+
+	// Re-enable peripheral
+	I2C1->CR1 |= I2C_CR1_PE;
+
+
+
+
+}
+
+
+
+
+void I2C1_ReadByte(uint8_t saddr, uint8_t reg_addr , char* data)
+{
+	//volatile int tmp;
+
+	//--- 1. Make sure I2C1 is enabled
+	//if (!(I2C1->CR1 & I2C_CR1_PE))
+		//I2C1->CR1 |= I2C_CR1_PE;
+
+	//wait for bus to be not busy
+	while(I2C1->ISR & I2C_ISR_BUSY){}
+
+
+	/*
+	// Slave address (7-bit) -> keep ADD10 at 0
+	I2C1->CR2 |= ((uint8_t) saddr << 1);
+	//number of bytes is 1 to be received
+	I2C1->CR2 |= I2C_CR2_NBYTES;
+	// Transfer direction -> master requests a write -> 0
+	I2C1->CR2 &= ~I2C_CR2_RD_WRN;
+	// Generate START
+	I2C1->CR2 |= I2C_CR2_START;
+	*/
+	// 2. Configure CR2 in one shot
+	I2C1->CR2 =
+	((uint8_t)saddr << 1) |    // 7-bit slave address
+	(uint32_t) I2C_CR2_NBYTES | // NBYTES
+	(0U << 10) | 				//I2C_CR2_RD_WRN
+	I2C_CR2_AUTOEND |
+	I2C_CR2_START;             // Auto STOP after last byte
+
+
+	I2C1->TXDR = reg_addr;  // e.g. 0x32 (DATAX0 register)
+	// Wait until transfer complete (TC)
+	//timeout = I2C_TIMEOUT;
+	while (!(I2C1->ISR & I2C_ISR_TC))
+	{
+		//if (--timeout == 0) return 0xFF;
+	}
+
+
+	/*
+	//--- 3. Re-Start and read phase
+	I2C1->CR2 |= ((uint8_t) saddr << 1);
+	// NBYTES = 1
+	I2C1->CR2 |= I2C_CR2_NBYTES;
+	// RD_WRN = 1 (read)
+	I2C1->CR2 |=I2C_CR2_RD_WRN;
+	// Generate (re)START
+	I2C1->CR2 |=I2C_CR2_START;
+	// Auto generate STOP after last byte/
+	I2C1->CR2 |=I2C_CR2_AUTOEND;
+	*/
+
+	I2C1->CR2 =
+		    ((uint8_t)saddr << 1) |  // SADD[7:1] – slave address
+		    (1U << 16)            |   // NBYTES = 1 (read one byte)
+		    I2C_CR2_RD_WRN        |   // Read direction
+		    I2C_CR2_START         |   // Generate (re)START
+		    I2C_CR2_AUTOEND;          // Auto STOP after last byte
+
+
+
+	// Wait until RXNE (Receive buffer not empty)
+	//timeout = I2C_TIMEOUT;
+	while (!(I2C1->ISR & I2C_ISR_RXNE))
+	{
+		//if (--timeout == 0) return 0xFF;
+	}
+
+
+	// Read received byte
+	*data++ = (uint8_t)I2C1->RXDR;
+
+
+
+	// After AUTOEND, STOP is generated automatically
+	// Optionally wait for STOP flag
+	while (!(I2C1->ISR & I2C_ISR_STOPF)){}
+
+
+	// Clear STOP flag
+	I2C1->ICR = I2C_ICR_STOPCF;
+
+
+
+}
+
+void I2C1_burstRead(uint8_t saddr, uint8_t reg_addr, int n, char* data)
+{
+	//volatile int tmp;
+
+	//wait for bus to be not busy
+	while(I2C1->ISR & I2C_ISR_BUSY){}
+
+
+	/*
+	// Slave address (7-bit) -> keep ADD10 at 0
+	I2C1->CR2 |= ((uint8_t) saddr << 1);
+	//number of bytes is 1 to be received
+	I2C1->CR2 |= I2C_CR2_NBYTES;
+	// Transfer direction -> master requests a read -> 1
+	I2C1->CR2 |= I2C_CR2_RD_WRN;
+	// Generate START
+	I2C1->CR2 |= I2C_CR2_START;
+	*/
+	// 2. Configure CR2 in one shot
+	I2C1->CR2 =
+	((uint8_t)saddr << 1) |    // 7-bit slave address
+	(uint32_t) I2C_CR2_NBYTES | // NBYTES
+	I2C_CR2_RD_WRN |
+	I2C_CR2_AUTOEND |
+	I2C_CR2_START;             // Auto STOP after last byte
+
+
+
+	// Wait until TXIS (ready to send data)
+	while (!(I2C1->ISR & I2C_ISR_TXIS)){}
+	// Send register address
+	I2C1->TXDR = reg_addr;
+
+
+	while (!(I2C1->ISR & I2C_ISR_TC))
+	{
+		//if (--timeout == 0) return 0xFF;
+	}
+
+
+	/*
+	//--- 3. Re-Start and read phase
+	I2C1->CR2 |= ((uint8_t) saddr << 1);
+	// NBYTES = 1
+	I2C1->CR2 |= I2C_CR2_NBYTES;
+	// RD_WRN = 1 (read)
+	I2C1->CR2 |=I2C_CR2_RD_WRN;
+	// Generate (re)START
+	I2C1->CR2 |=I2C_CR2_START;
+	// Auto generate STOP after last byte/
+	I2C1->CR2 |=I2C_CR2_AUTOEND;
+	*/
+
+	I2C1->CR2 =
+	    ((uint8_t)saddr << 1) |  // SADD[7:1] – slave address
+	    (1U << 16)            |   // NBYTES = 1 (read one byte)
+	    I2C_CR2_RD_WRN        |   // Read direction
+	    I2C_CR2_START         |   // Generate (re)START
+	    I2C_CR2_AUTOEND;          // Auto STOP after last byte
+
+
+
+	//--- 4. Receive loop
+	for (uint8_t i = 0; i < n; i++)
+	{
+		// Wait until RXNE (data ready)
+		while (!(I2C1->ISR & I2C_ISR_RXNE)){}
+
+		// Read received byte
+		*data++ = (uint8_t)I2C1->RXDR;
+	}
+
+
+
+	// Optionally wait for STOP flag
+	while (!(I2C1->ISR & I2C_ISR_STOPF)){}
+
+	// Clear STOP flag
+	I2C1->ICR = I2C_ICR_STOPCF;
+
+}
+
+
+
+void I2C_burstWrite(uint8_t saddr, uint8_t reg_addr, int n, char* data)
+{
+	//wait for bus to be not busy
+	while(I2C1->ISR & I2C_ISR_BUSY){}
+
+	/*
+	// Slave address (7-bit) -> keep ADD10 at 0
+	I2C1->CR2 |= ((uint8_t) saddr << 1);
+	//number of bytes is 1 to be received
+	I2C1->CR2 |= (uint32_t) ( (n + 1) << 16);
+	// Transfer direction -> master requests a write -> 0
+	I2C1->CR2 &= ~I2C_CR2_RD_WRN;
+	// Generate START
+	I2C1->CR2 |= I2C_CR2_START;
+	// Auto generate STOP after last byte/
+	I2C1->CR2 |=I2C_CR2_AUTOEND;
+	*/
+
+	 // 2. Configure CR2 in one shot
+	I2C1->CR2 =
+	((uint32_t)saddr << 1) |    // 7-bit slave address
+	((uint32_t)(n + 1) << 16) | // NBYTES = reg_addr + data bytes
+	I2C_CR2_AUTOEND;             // Auto STOP after last byte
+
+	// Write direction (RD_WRN = 0 by default)
+
+	// 3. Generate START
+	I2C1->CR2 |= I2C_CR2_START;
+
+
+
+
+
+	//--- 3. Send register address first
+	while (!(I2C1->ISR & I2C_ISR_TXIS)){}
+
+	I2C1->TXDR = reg_addr; //inside the I²C slave device
+
+
+
+	//--- 4. Send all data bytes
+	for (uint8_t i = 0; i < n; i++)
+	{
+		while (!(I2C1->ISR & I2C_ISR_TXIS)){}
+
+		I2C1->TXDR = *data++;
+	}
+
+
+
+	// Optionally wait for STOP flag
+	while (!(I2C1->ISR & I2C_ISR_STOPF)){}
+
+	// Clear STOP flag
+	I2C1->ICR = I2C_ICR_STOPCF;
+
+}
+
+
+
+

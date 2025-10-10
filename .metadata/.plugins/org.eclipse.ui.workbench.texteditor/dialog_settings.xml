@@ -11,4 +11,10 @@
 		<item value="GPIOA"/>
 		<item value="RCC"/>
 	</list>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="GPIOBEN"/>
+		<list key="findhistory">
+			<item value="GPIOBEN"/>
+		</list>
+	</section>
 </section>

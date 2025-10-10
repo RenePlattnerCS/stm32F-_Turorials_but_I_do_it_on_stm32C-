@@ -1,0 +1,16 @@
+#include "stm32C0xx.h"
+#include <stdint.h>
+
+//SCL =  PB8 AF6
+//SDA =  PB9 AF6
+
+
+void I2C1_init(void)
+{
+	//enable clock to APB
+
+
+
+
+
+}

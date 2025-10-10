@@ -1,0 +1,48 @@
+#include "stm32C0xx.h"
+#include <stdint.h>
+
+#define GPIOBEN			(1U << 1)
+#define APB_I2C1EN		(1U << 21)
+
+#define I2C_CR1_PE			(1U << 0)
+//SCL =  PB8 AF6
+//SDA =  PB9 AF6
+void I2C1_init(void)
+{
+
+
+	//clock for GPIOB
+	RCC->IOPENR |= GPIOBEN;
+
+
+	// set PB8 and 9 to alternate func
+	GPIOB->MODER &= ~(1U<<16);
+	GPIOB->MODER |= (1U<<17);
+
+	GPIOB->MODER &= ~(1U<<18);
+	GPIOB->MODER |= (1U<<19);
+
+	// set Pint output type to open drain
+	GPIOB->MODER |= (1U<<8);
+	GPIOB->MODER |= (1U<<9);
+
+	// enable pullup for both pins
+	GPIOB->MODER &= ~(1U<<17);
+	GPIOB->MODER |= (1U<<16);
+
+	GPIOB->MODER &= ~(1U<<19);
+	GPIOB->MODER |= (1U<<18);
+
+	//enable clock to APB
+	RCC->APBENR1 |= APB_I2C1EN;
+
+	// Disable I2C peripheral
+	I2C1->CR1 &= ~I2C_CR1_PE;
+
+
+
+	// Re-enable peripheral
+	I2C1->CR1 |= I2C_CR1_PE;
+
+
+}

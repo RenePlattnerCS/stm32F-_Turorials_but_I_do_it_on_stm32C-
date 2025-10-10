@@ -1,0 +1,32 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+#include "timer.h"
+
+#include "systick.h"
+
+#define GPIOAEN 			(1U << 0)
+
+#define PIN5				(1U << 5)
+#define LED_PIN				PIN5
+
+
+int main(void)
+{
+
+	adxl_init();
+
+
+	while(1)
+	{
+
+	}
+
+}
+
+
+
+
+
+
