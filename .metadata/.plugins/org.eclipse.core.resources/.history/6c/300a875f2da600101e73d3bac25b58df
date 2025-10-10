@@ -1,0 +1,76 @@
+#include "adxl345.h"
+
+
+
+#define MULTI_BYTE_EN		0x40
+#define READ_OPERATION		0x80
+
+
+void adxl_read(uint8_t address, uint8_t* rxdata)
+{
+	//set read operation
+	address |= READ_OPERATION;
+	//enable multi byte
+	address |= MULTI_BYTE_EN;
+
+	//pull cs low
+	cs_enable();
+	// Small delay for CS settling
+	for(volatile int i = 0; i < 10; i++);
+
+	//send address
+	spi1_transmit(&address,1);
+
+	//read data 6 byte
+	//spi1_receive(rxdata, 6);
+	spi1_receive2(&rxdata,6 );
+
+
+	//pull cs high
+	cs_disable();
+
+}
+
+void adxl_write(uint8_t address, uint8_t value)
+{
+	//uint8_t data[2];
+	//enable multi byte , place address into buffer
+	//data[0] = address | MULTI_BYTE_EN;
+	//data[1] = value;
+
+	//pull cs low
+	cs_enable();
+	// Small delay
+	uint8_t addr = address & 0x3F;  // Clear multi-byte and read bits
+	spi1_transmit(&addr, 1);
+	spi1_transmit(&value, 1);
+
+	//pull cs high
+	cs_disable();
+
+	// Delay between writes
+	for(volatile int i = 0; i < 1000; i++);
+
+}
+
+
+
+void adxl_init(void)
+{
+	//enable SPI GPIO
+	spi_gpio_init();
+	//config SPI
+	spi1_config();
+
+	//uint8_t devid;
+	//adxl_read(DEVID_R, &devid);
+
+	// set data format to +/- 4g
+	adxl_write(DATA_FORMAT_R, FOUR_G);
+	//reset all bits
+	adxl_write(POWER_CTL_R, RESET);
+	//configure power mode
+	adxl_write(POWER_CTL_R, SET_MEASURE_BIT);
+
+
+}

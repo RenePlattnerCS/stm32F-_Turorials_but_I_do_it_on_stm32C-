@@ -1,0 +1,10 @@
+01:46:09 **** Incremental Build of configuration Debug for project 18_I2C_accelerometer_spi ****
+make -j16 all 
+arm-none-eabi-size  18_I2C_accelerometer_spi.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2596	      0	   1592	   4188	   105c	18_I2C_accelerometer_spi.elf
+Finished building: default.size.stdout
+ 
+
+01:46:09 Build Finished. 0 errors, 0 warnings. (took 146ms)
+

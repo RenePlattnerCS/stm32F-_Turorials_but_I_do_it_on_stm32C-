@@ -1,0 +1,5 @@
+M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include/core_cm0plus.h:741:22:__NVIC_EnableIRQ	2
+../Src/timer.c:23:6:tim1_1hz_init	1
+../Src/timer.c:43:6:tim1_output_compare	1
+../Src/timer.c:89:6:tim3_pa6_input_capture	1
+../Src/timer.c:121:6:tim1_1hz_interrupt	1

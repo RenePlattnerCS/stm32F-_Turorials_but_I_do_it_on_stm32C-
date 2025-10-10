@@ -1,0 +1,42 @@
+#include "spi.h"
+#include "stm32C0xx.h"
+
+#define SPI1EN			(1U << 12)
+#define GPIOAEN			(1U << 0)
+
+
+
+
+
+
+//NSS   PA4 -> output pin , slave select
+
+//SCK   PA5
+//MISO  PA6
+//MOSI  PA7
+//AF0
+void spi_gpio_init(void)
+{
+	RCC->APBENR2 |= SPI1EN;
+	RCC->IOPENR |= GPIOAEN;
+
+
+	//AF0
+	GPIOA->MODER &= ~(1U<<10);
+	GPIOA->MODER |= (1U<<11);
+
+	GPIOA->MODER &= ~(1U<<12);
+	GPIOA->MODER |= (1U<<13);
+
+	GPIOA->MODER &= ~(1U<<14);
+	GPIOA->MODER |= (1U<<15);
+
+
+	GPIOA->MODER  =   (1U<<8);
+	GPIOA->MODER  &= ~(1U<<9);
+
+	GPIOA->AFR[1] = 0x0; //Af0
+
+
+
+}

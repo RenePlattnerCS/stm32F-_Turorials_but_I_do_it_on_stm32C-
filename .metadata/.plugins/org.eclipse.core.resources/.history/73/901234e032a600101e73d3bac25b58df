@@ -1,0 +1,44 @@
+#include <stdint.h>
+#include <stdio.h>
+#include "stm32C0xx.h"
+#include "uart.h"
+#include "timer.h"
+
+#include "systick.h"
+
+#include "adxl345.h"
+
+
+//const float FOUR_G_SCALE_FACTOR = 0.0078;
+
+
+int16_t x,y,z;
+float xg, yg, zg;
+uint8_t data_vals[6];
+
+int main(void)
+{
+
+	adxl_init();
+
+
+	while(1)
+	{
+		adxl_read(DATA_START_ADDR, data_vals);
+
+		x = (int16_t) ((data_vals[1] << 8)  |  data_vals[0]);
+		y = (int16_t) ((data_vals[3] << 8)  |  data_vals[2]);
+		z = (int16_t) ((data_vals[5] << 8)  |  data_vals[4]);
+
+		xg = (x * 0.0078f);
+		yg = (y * 0.0078f);
+		zg = (z * 0.0078f);
+	}
+
+}
+
+
+
+
+
+

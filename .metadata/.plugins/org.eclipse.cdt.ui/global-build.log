@@ -1,97 +1,32 @@
-13:39:43 **** Incremental Build of configuration Debug for project 17_I2C_accelerometer ****
+01:45:10 **** Incremental Build of configuration Debug for project 18_I2C_accelerometer_spi ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/i2c.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/i2c.d" -MT"Src/i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/i2c.o"
-../Src/i2c.c:7: warning: "I2C_CR1_PE" redefined
-    7 | #define I2C_CR1_PE                      (1U << 0)
-      | 
-In file included from M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32C0xx.h:105,
-                 from ../Src/i2c.c:1:
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3219: note: this is the location of the previous definition
- 3219 | #define I2C_CR1_PE                   I2C_CR1_PE_Msk                            /*!< Peripheral enable */
-      | 
-../Src/i2c.c:8: warning: "I2C_ISR_BUSY" redefined
-    8 | #define I2C_ISR_BUSY            (1U << 15)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3439: note: this is the location of the previous definition
- 3439 | #define I2C_ISR_BUSY                 I2C_ISR_BUSY_Msk                          /*!< Bus busy */
-      | 
-../Src/i2c.c:9: warning: "I2C_CR2_START" redefined
-    9 | #define I2C_CR2_START           (1U << 13)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3296: note: this is the location of the previous definition
- 3296 | #define I2C_CR2_START                I2C_CR2_START_Msk                         /*!< START generation */
-      | 
-../Src/i2c.c:15: warning: "I2C_ISR_TC" redefined
-   15 | #define I2C_ISR_TC                      (1U << 6)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3415: note: this is the location of the previous definition
- 3415 | #define I2C_ISR_TC                   I2C_ISR_TC_Msk                            /*!< Transfer complete (master mode) */
-      | 
-../Src/i2c.c:16: warning: "I2C_CR2_RD_WRN" redefined
-   16 | #define I2C_CR2_RD_WRN          (1U << 10)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3287: note: this is the location of the previous definition
- 3287 | #define I2C_CR2_RD_WRN               I2C_CR2_RD_WRN_Msk                        /*!< Transfer direction (master mode) */
-      | 
-../Src/i2c.c:17: warning: "I2C_CR2_NBYTES" redefined
-   17 | #define I2C_CR2_NBYTES          (1U << 16)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3305: note: this is the location of the previous definition
- 3305 | #define I2C_CR2_NBYTES               I2C_CR2_NBYTES_Msk                        /*!< Number of bytes */
-      | 
-../Src/i2c.c:18: warning: "I2C_ISR_RXNE" redefined
-   18 | #define I2C_ISR_RXNE            (1U << 2)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3403: note: this is the location of the previous definition
- 3403 | #define I2C_ISR_RXNE                 I2C_ISR_RXNE_Msk                          /*!< Receive data register not empty */
-      | 
-../Src/i2c.c:19: warning: "I2C_ISR_STOPF" redefined
-   19 | #define I2C_ISR_STOPF           (1U << 5)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3412: note: this is the location of the previous definition
- 3412 | #define I2C_ISR_STOPF                I2C_ISR_STOPF_Msk                         /*!< STOP detection flag */
-      | 
-../Src/i2c.c:20: warning: "I2C_ISR_TXIS" redefined
-   20 | #define I2C_ISR_TXIS            (1U << 1)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3400: note: this is the location of the previous definition
- 3400 | #define I2C_ISR_TXIS                 I2C_ISR_TXIS_Msk                          /*!< Transmit interrupt status */
-      | 
-../Src/i2c.c:21: warning: "I2C_CR2_AUTOEND" redefined
-   21 | #define I2C_CR2_AUTOEND         (1U << 25)
-      | 
-M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include/stm32c031xx.h:3311: note: this is the location of the previous definition
- 3311 | #define I2C_CR2_AUTOEND              I2C_CR2_AUTOEND_Msk                       /*!< Automatic end mode (master mode) */
-      | 
-arm-none-eabi-gcc -o "17_I2C_accelerometer.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\17_I2C_accelerometer\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="17_I2C_accelerometer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 17_I2C_accelerometer.elf
+arm-none-eabi-gcc "../Src/spi.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/spi.d" -MT"Src/spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/spi.o"
+../Src/spi.c: In function 'spi1_transmit':
+../Src/spi.c:106:17: warning: variable 'temp' set but not used [-Wunused-but-set-variable]
+  106 |         uint8_t temp;
+      |                 ^~~~
+arm-none-eabi-gcc -o "18_I2C_accelerometer_spi.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\18_I2C_accelerometer_spi\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="18_I2C_accelerometer_spi.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 18_I2C_accelerometer_spi.elf
  
-arm-none-eabi-size  17_I2C_accelerometer.elf 
-arm-none-eabi-objdump -h -S 17_I2C_accelerometer.elf  > "17_I2C_accelerometer.list"
+arm-none-eabi-size  18_I2C_accelerometer_spi.elf 
+arm-none-eabi-objdump -h -S 18_I2C_accelerometer_spi.elf  > "18_I2C_accelerometer_spi.list"
    text	   data	    bss	    dec	    hex	filename
-   3568	      0	   1592	   5160	   1428	17_I2C_accelerometer.elf
+   2596	      0	   1592	   4188	   105c	18_I2C_accelerometer_spi.elf
 Finished building: default.size.stdout
  
-Finished building: 17_I2C_accelerometer.list
+Finished building: 18_I2C_accelerometer_spi.list
  
-13:40:05 **** Incremental Build of configuration Debug for project 17_I2C_accelerometer ****
+01:45:21 **** Incremental Build of configuration Debug for project 18_I2C_accelerometer_spi ****
 make -j16 all 
-arm-none-eabi-size  17_I2C_accelerometer.elf 
+arm-none-eabi-size  18_I2C_accelerometer_spi.elf 
    text	   data	    bss	    dec	    hex	filename
-   3568	      0	   1592	   5160	   1428	17_I2C_accelerometer.elf
+   2596	      0	   1592	   4188	   105c	18_I2C_accelerometer_spi.elf
 Finished building: default.size.stdout
  
-13:47:05 **** Incremental Build of configuration Debug for project 17_I2C_accelerometer ****
+01:46:09 **** Incremental Build of configuration Debug for project 18_I2C_accelerometer_spi ****
 make -j16 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DNUCLEO_C031C6 -DSTM32 -DSTM32C0 -DSTM32C031C6Tx -DSTM32C031xx -c -I../Inc -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Device/ST/STM32C0xx/Include" -I"M:/embedded/stm32C/workbench/chip_headers/CMSIS/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "17_I2C_accelerometer.elf" @"objects.list"   -mcpu=cortex-m0plus -T"M:\embedded\stm32C\workbench\17_I2C_accelerometer\STM32C031C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="17_I2C_accelerometer.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 17_I2C_accelerometer.elf
- 
-arm-none-eabi-size  17_I2C_accelerometer.elf 
-arm-none-eabi-objdump -h -S 17_I2C_accelerometer.elf  > "17_I2C_accelerometer.list"
+arm-none-eabi-size  18_I2C_accelerometer_spi.elf 
    text	   data	    bss	    dec	    hex	filename
-   2556	      0	   1592	   4148	   1034	17_I2C_accelerometer.elf
+   2596	      0	   1592	   4188	   105c	18_I2C_accelerometer_spi.elf
 Finished building: default.size.stdout
- 
-Finished building: 17_I2C_accelerometer.list
  
